@@ -6,14 +6,14 @@ lines = birthday_file.readlines
 person_info={}
 
 lines.each do |birthday_line|
-  @person =  birthday_line.chomp.split(',')
-  person_info[@person[1] + ' ' + @person[0]] = @person
+  person =  birthday_line.chomp.split(',')
+  person_info[person[1] + ' ' + person[0]] = person
 end
 
 puts "Who's Birthday do you want to know?"
 
 birthday_name = gets.chomp
-persons_bday =""
+persons_bday = ""
 
 person_info.each do |key, value|
   if key[birthday_name]
@@ -23,6 +23,6 @@ end
 
 persons_bday_date = Date.parse(persons_bday)
 today_date = Date.today
-year_diff=today_date.year-persons_bday_date.year
+year_diff = today_date.year - persons_bday_date.year
 
 puts persons_bday_date.strftime("%B %-d, %Y") + ",\n                                #{year_diff} years old"
